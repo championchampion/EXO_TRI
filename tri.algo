@@ -1,0 +1,53 @@
+
+
+ALGORITHM tri_insertion
+
+//declaration des variables 
+
+VAR
+tab :  ARRAY_OF INTEGER[50];
+i, j,k,tp: INTEGER;
+
+
+//initialisation des variables
+i:=1;
+j:=0;
+tp:=0;
+k:=0;
+
+
+BEGIN
+
+// l'utilisateur est prié de saisir les elements en donnant une taille au tableau
+
+   Write("Entrez le nombre de d'élément du tableau");
+   Read(k);
+
+		FOR i FROM 0 TO k-1 STEP 1 DO
+		Write("Entrez l'élément " i+1);
+		Read(tab[i]);
+
+		END_FOR
+
+    // Nous commençons à parcourir le tableau en commençant par le 2ème élément 
+
+        FOR i FROM 1 TO k-1 STEP 1 DO
+
+    // mémoriser tab[i] dans la variable tampon tp
+            tp := tab[i] ;
+            j:= i;                       
+
+    // décaler les éléments tab[0] à tab[i-1] qui sont plus grands que tp, en partant de tab[i-1] en considerant j=i
+                                          
+            WHILE ( tp < tab[j - 1]  AND J>0) DO
+                     tab[j] ← tab[j - 1];
+                     j ← j - 1 ;
+
+            END_WHILE
+
+    // nous plaçons  le contenu de la variable tampon  dans l'espace  laissé par le décalage
+            tab[j] := tp  ;
+            
+        END_FOR
+
+END
